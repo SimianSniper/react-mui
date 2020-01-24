@@ -93,17 +93,17 @@ function scriptsLint() {
     .src([paths.scripts.src, "./gulpfile.js"])
     .pipe(plumber())
     .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-}
+    .pipe(eslint.format());
+    //.pipe(eslint.failAfterError());
+} 
 
 // JS - Transpile, concatenate and minify scripts
 function scripts() {
   return (
     gulp
       .src([paths.scripts.src])
-      .pipe(plumber())
       .pipe(webpackstream(webpackconfig, webpack))
+      .pipe(plumber())
       // folder only, filename is specified in webpack config
       .pipe(gulp.dest(paths.scripts.dest))
       .pipe(browsersync.stream())
