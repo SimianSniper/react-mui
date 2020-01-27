@@ -92,7 +92,7 @@ function scriptsLint() {
   return gulp
     .src([paths.scripts.src, "./gulpfile.js"])
     .pipe(plumber())
-    .pipe(eslint())
+    .pipe(eslint({fix: true}))
     .pipe(eslint.format());
     //.pipe(eslint.failAfterError());
 } 

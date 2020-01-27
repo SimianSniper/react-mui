@@ -48,12 +48,18 @@
   }
 }
 
+html {
+  font-size: 62.5%;
+  /* 62.5% of 16px = 10px */
+}
+
 body {
-  background: url("../img/stone-bricks-grey.jpg");
+  background: #000;
   margin: 0;
   height: 100vh;
   font-size: 16px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Roboto', sans-serif;
+  color: blue;
 }
 
 header {
@@ -64,12 +70,6 @@ header {
   justify-content: center;
 }
 
-.game_wrapper {
-  width: 800px;
-  margin: auto;
-}
-
-.game_h3 {
-  font-size: 28px;
-  font-family: 'Courier New', Courier, monospace;
+.main {
+  margin: 0;
 }
