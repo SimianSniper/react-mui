@@ -80067,29 +80067,24 @@ var theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["create
     secondary: _material_ui_core_colors_green__WEBPACK_IMPORTED_MODULE_5___default.a
   }
 });
-theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["responsiveFontSizes"])(theme);
-console.log('theme', theme);
-var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])(function (theme) {
-  return {
-    "default": {
-      backgroundColor: theme.palette.background["default"],
-      padding: theme.spacing(1)
-    },
-    paper: {
-      backgroundColor: theme.palette.background.paper,
-      padding: theme.spacing(1)
-    }
-  };
-});
+theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["responsiveFontSizes"])(theme); // const useStyles = makeStyles(theme => ({
+//   default: {
+//     //backgroundColor: theme.palette.background.default,
+//     //padding: theme.spacing(1),
+//   },
+//   paper: {
+//     //backgroundColor: theme.palette.background.paper,
+//     //padding: theme.spacing(1),
+//   },
+// }));
+// const classes = useStyles();
 
 var App = function App() {
-  var classes = useStyles();
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["MuiThemeProvider"], {
     theme: theme
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Box"], {
     m: 1,
-    color: "red",
-    className: classes.paper
+    color: "red"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
     variant: "h1",
     color: "primary",
@@ -80137,8 +80132,7 @@ var App = function App() {
     gutterBottom: true
   }, "overline text")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Box"], {
     m: 1,
-    color: "red",
-    className: classes["default"]
+    color: "red"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_3__["default"], {
     variant: "h1",
     color: "primary",

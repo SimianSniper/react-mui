@@ -12,24 +12,23 @@ let theme = createMuiTheme({
   }
 });
 theme = responsiveFontSizes(theme);
-console.log('theme', theme)
 
-const useStyles = makeStyles(theme => ({
-  default: {
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(1),
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(1),
-  },
-}));
+// const useStyles = makeStyles(theme => ({
+//   default: {
+//     //backgroundColor: theme.palette.background.default,
+//     //padding: theme.spacing(1),
+//   },
+//   paper: {
+//     //backgroundColor: theme.palette.background.paper,
+//     //padding: theme.spacing(1),
+//   },
+// }));
+// const classes = useStyles();
 
 const App = () => {
-  const classes = useStyles();
   return (
     <MuiThemeProvider theme={theme}>
-      <Box m={1} color="red" className={classes.paper}>
+      <Box m={1} color="red">
         <Typography variant="h1" color="primary" gutterBottom>
           h1. Heading - primary
         </Typography>
@@ -74,7 +73,7 @@ const App = () => {
           overline text
         </Typography>
       </Box>
-      <Box m={1} color="red" className={classes.default}>
+      <Box m={1} color="red">
         <Typography variant="h1" color="primary" gutterBottom>
           h1. Heading - primary
         </Typography>
