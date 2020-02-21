@@ -54,7 +54,7 @@ html {
 }
 
 body {
-  background: #000;
+  background: #0c6942;
   margin: 0;
   height: 100vh;
   font-size: 16px;
@@ -63,7 +63,7 @@ body {
 }
 
 header {
-  font-size: 3rem;
+  font-size: 4rem;
   padding: 20px;
   background-color: black;
   display: flex;

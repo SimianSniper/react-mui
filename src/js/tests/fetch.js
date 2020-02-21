@@ -1,10 +1,12 @@
-MyApp.ns("MyApp.Utils.Fetcher");
+//debugger;
+//MyApp = window.MyApp || {};
+window.MyApp.ns("MyApp.Utils.Fetcher");
 
-(function(testURL) {
+(function Fetcher(theURL) {
 
-  var testURL = testURL || 'https://swapi.co/api/';
+  var testURL = theURL || 'https://swapi.co/api/';
 
-  this.fetchTheURL = function(url=testURL) {
+  this.fetchTheURL = function fetchTheURL(url=testURL) {
   
     console.log('Fetching URL: ', url);
   
@@ -25,7 +27,7 @@ MyApp.ns("MyApp.Utils.Fetcher");
     xhr.open('GET', url);
     xhr.send(null);
   
-    xhr.onreadystatechange = function () {
+    xhr.onreadystatechange = function onreadystatechange() {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
           console.log('XHR Response:', xhr.responseText);
@@ -34,21 +36,17 @@ MyApp.ns("MyApp.Utils.Fetcher");
         }
       }
     };
-  
+
     // FETCH //////////////////////////////
-    fetch(url)
-      .then(function(response) {
+    fetch(url).then(function(response) {
         return response.json()
       }).then(function(json) {
-        console.log('FETCH Response 1 :', json)
+        console.log('FETCH Response :', json)
         return json
-      }).then(function(json) {
-        console.log('FETCH Response 2:', json)
       }).catch(function(ex) {
         console.log('FETCH Error:', ex)
       })
 
-}}).apply(MyApp.Utils.Fetcher, ['https://swapi.co/api/films/2']);
+}}).apply(window.MyApp.Utils.Fetcher, ['https://swapi.co/api/films/2']);
 
-//MyApp.Utils.Fetcher.fetchTheURL('https://swapi.co/api/films/3/');
-export default()
+///MyApp.Utils.Fetcher.fetchTheURL('https://swapi.co/api/films/3/');

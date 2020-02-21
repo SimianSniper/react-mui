@@ -1,36 +1,35 @@
 import React from 'react'
-import { Box, Text } from '@material-ui/core'
 import { createMuiTheme, MuiThemeProvider, makeStyles, responsiveFontSizes } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import purple from '@material-ui/core/colors/purple';
-import green from '@material-ui/core/colors/green';
+import Box from '@material-ui/core/Box';
 
 let theme = createMuiTheme({
   palette: {
-    primary: {main: '#fc0'},
-    secondary: green,
+    primary: {main: '#ffcccc'},
   }
 });
-theme = responsiveFontSizes(theme);
+theme = responsiveFontSizes(theme); 
 
-// const useStyles = makeStyles(theme => ({
-//   default: {
-//     //backgroundColor: theme.palette.background.default,
-//     //padding: theme.spacing(1),
-//   },
-//   paper: {
-//     //backgroundColor: theme.palette.background.paper,
-//     //padding: theme.spacing(1),
-//   },
-// }));
-// const classes = useStyles();
+const useStyles = makeStyles(nextTheme => ({
+  default: {
+    backgroundColor: nextTheme.palette.background.default,
+    padding: nextTheme.spacing(1),
+  },
+  paper: {
+    backgroundColor: nextTheme.palette.background.paper,
+    padding: nextTheme.spacing(1),
+  },
+}));
 
 const App = () => {
+
+  const classes = useStyles();
+
   return (
     <MuiThemeProvider theme={theme}>
-      <Box m={1} color="red">
+      <Box m={1} color="red" className={classes.default}>
         <Typography variant="h1" color="primary" gutterBottom>
-          h1. Heading - primary
+          h1. Heading - primaryyggg
         </Typography>
         <Typography variant="h2" color="secondary" gutterBottom>
           h2. Heading - secondary
@@ -73,7 +72,7 @@ const App = () => {
           overline text
         </Typography>
       </Box>
-      <Box m={1} color="red">
+      <Box m={1} color="red" className={classes.paper}>
         <Typography variant="h1" color="primary" gutterBottom>
           h1. Heading - primary
         </Typography>
