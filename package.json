@@ -52,10 +52,12 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-strip-debug": "^3.0.0",
     "minimist": "^1.2.0",
+    "react-hot-loader": "^4.12.19",
     "require-dir": "^1.2.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
+    "webpack-hot-server-middleware": "^0.6.0",
     "webpack-merge": "^4.2.2",
     "webpack-stream": "^5.2.1"
   },

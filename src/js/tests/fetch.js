@@ -1,5 +1,3 @@
-//debugger;
-//MyApp = window.MyApp || {};
 window.MyApp.ns("MyApp.Utils.Fetcher");
 
 (function Fetcher(theURL) {

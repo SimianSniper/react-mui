@@ -1,12 +1,14 @@
 "use strict";
 
-const gulp = require('gulp');
 const merge = require('lodash/merge');
 const minimist = require('minimist')(process.argv);
 const env = minimist.env || 'production'
 
 const paths = {
   gulpfile: './gulpfile.js',
+  gulptasks: './gulp/**/*.js',
+  lintfile: './.eslintrc.js',
+  webpack: './webpack/**/*.js',
   packagejson: './package.json',
   styles: {
     src: "./src/scss/**/*.scss",

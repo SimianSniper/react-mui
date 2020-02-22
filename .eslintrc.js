@@ -25,9 +25,10 @@ module.exports = {
   ],
   rules: {
     "no-console": "off",
-    "no-alert": "off",
-    "no-debugger": "off",
-    "react/jsx-filename-extension":[0]
+    //"no-alert": "off",
+    //"no-debugger": "off",
+    "react/jsx-filename-extension":[0],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["./gulpfile.js", "./gulp/**/*.js", "./webpack/**/*.js"]}]
     //"no-unused-vars": [0]
   }
 };

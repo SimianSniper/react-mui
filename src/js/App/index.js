@@ -29,7 +29,7 @@ const App = () => {
     <MuiThemeProvider theme={theme}>
       <Box m={1} color="red" className={classes.default}>
         <Typography variant="h1" color="primary" gutterBottom>
-          h1. Heading - primaryyggg
+          h1. Heading - primary
         </Typography>
         <Typography variant="h2" color="secondary" gutterBottom>
           h2. Heading - secondary

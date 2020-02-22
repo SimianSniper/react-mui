@@ -4,4 +4,4 @@ import App from './App';
 require('./utilities/namespace')
 require('./tests/fetch')
 
-ReactDOM.render(<App />, document.getElementById('react-wrapper'));
+ReactDOM.render(<App />, document.getElementById('react-root'));
