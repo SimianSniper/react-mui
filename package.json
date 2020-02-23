@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Dev Environment",
   "private": true,
+  "browserslist": "last 2 version and > 1%",
   "scripts": {
     "start": "gulp build --env=development && gulp watch",
     "prod": "gulp build --env=production && gulp watch",
@@ -45,6 +46,7 @@
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^6.1.1",
     "gulp-newer": "^1.4.0",
+    "gulp-noop": "^1.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^1.4.0",
@@ -64,9 +66,9 @@
   "dependencies": {
     "@material-ui/core": "^4.9.0",
     "@material-ui/icons": "^4.5.1",
+    "@material-ui/lab": "^4.0.0-alpha.43",
     "@material-ui/styles": "^4.9.0",
-    "classnames": "^2.2.6",
-    "lodash": "^4.17.15",
+    "clsx": "^1.1.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }

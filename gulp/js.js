@@ -1,16 +1,15 @@
-"use strict";
-
-//const stripDebug = require('gulp-strip-debug');
 const gulp = require('gulp'),
+noop = require('gulp-noop'),
 browsersync = require("browser-sync").get('syncServer1'),
 eslint = require("gulp-eslint"),
 plumber = require("gulp-plumber"),
 minimist = require('minimist')(process.argv),
 webpack = require("webpack"),
 webpackstream = require("webpack-stream"),
-config = require("./config"),
+config = require('./config'),
 webpackConfig = minimist.env === 'production' ? 
-  require("../webpack/webpack.config.prod") : require("../webpack/webpack.config.dev");
+  require('../webpack/webpack.config.prod') : require('../webpack/webpack.config.dev');
+//const stripDebug = require('gulp-strip-debug');
 
 function scriptsLint() {
   return gulp
@@ -23,9 +22,9 @@ function scriptsLint() {
     ])
     //.pipe(stripDebug())
     .pipe(plumber())
-    .pipe(eslint({fix: true}))
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
+    .pipe(config.run.js.lint ? eslint(config.plugin.js.lint) : noop())
+    .pipe(config.run.js.lintFormat ? eslint.format(config.plugin.js.lintFormat) : noop())
+    .pipe(config.run.js.lintFail ? eslint.failAfterError(config.plugin.js.lintFail) : noop());
 } 
 
 function scripts() {

@@ -1,19 +1,19 @@
 "use strict";
 
-const { watch, series, parallel } = require( 'gulp' ),
+const { watch, series, parallel } = require('gulp'),
 t = require('require-dir')('./gulp'),
 config = require("./gulp/config");
 
 function watchFiles() {
   watch(config.paths.pages.src, series(t.html.html, t.browser.browserSyncReload));
   watch(config.paths.images.src, series(t.img.images, t.browser.browserSyncReload));
-  watch(config.paths.styles.src, series(t.css.css));
+  watch(config.paths.styles.src, t.css.css);
   watch(config.paths.scripts.src, series(t.js.scriptsLint, t.js.scripts));
   watch([
     config.paths.gulpfile,
     config.paths.gulptasks,
-    config.paths.lintfile,
-    config.paths.webpack
+    config.paths.webpack,
+    config.paths.lintfile
   ], t.js.scriptsLint);
 }
 

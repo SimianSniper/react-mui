@@ -1,28 +1,22 @@
 "use strict";
 
-const gulp = require('gulp');
-const newer = require('gulp-newer');
-const imagemin = require('gulp-imagemin');
-const config = require("./config");
+const gulp = require('gulp'),
+noop = require('gulp-noop'),
+newer = require('gulp-newer'),
+imagemin = require('gulp-imagemin'),
+config = require("./config");
 
 function images() {
   return gulp
     .src(config.paths.images.src)
     .pipe(newer(config.paths.images.dest))
     .pipe(
-      imagemin([
-        imagemin.gifsicle({ interlaced: true }),
-        imagemin.jpegtran({ progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 }),
-        imagemin.svgo({
-          plugins: [
-            {
-              removeViewBox: false,
-              collapseGroups: true
-            }
-          ]
-        })
-      ])
+      config.run.img.imagemin ? imagemin([
+        imagemin.gifsicle(config.plugin.img.imagemin.gifsicle),
+        imagemin.jpegtran(config.plugin.img.imagemin.jpegtran),
+        imagemin.optipng(config.plugin.img.imagemin.optipng),
+        imagemin.svgo(config.plugin.img.imagemin.svgo)
+      ]) : noop()
     )
     .pipe(gulp.dest(config.paths.images.dest))
 }

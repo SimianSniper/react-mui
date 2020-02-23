@@ -1,8 +1,9 @@
 "use strict";
 
-const merge = require('lodash/merge');
-const minimist = require('minimist')(process.argv);
-const env = minimist.env || 'production'
+//const merge = require('lodash/merge'),
+const merge = require('webpack-merge'),
+minimist = require('minimist')(process.argv),
+env = minimist.env || 'development';
 
 const paths = {
   gulpfile: './gulpfile.js',
@@ -29,13 +30,7 @@ const paths = {
 };
 
 const constants = {
-  default: {
-    apiHost: ''
-  },
   development: {
-    apiHost: 'http://localhost:9050'
-  },
-  staging: {
     apiHost: ''
   },
   production: {
@@ -43,72 +38,88 @@ const constants = {
   }
 };
 
-var run = {
-  default: {
-    js: {
-      uglify: false
-    },
-    css: {
-      cssnano: false
-    }
-  },
+const run = {
+
   development: {
     js: {
-      uglify: false
+      lint: true,
+      lintFormat: true,
+      lintFail: false
+    },
+    html: {
+      htmlmin: false
+    },
+    img: {
+      imagemin: false
     },
     css: {
-      cssnano: false
+      sourcemaps: true,
+      sass: true,
+      rename: false,
+      postcss: true,
+      cssnano: false,
+      autoprefixer: true
     }
   },
-  staging: {
-    js: {
-      uglify: true
-    },
-    css: {
-      cssnano: true
-    }
-  },
+
   production: {
     js: {
-      uglify: true
+      lint: true,
+      lintFormat: true,
+      lintFail: true
+    },
+    html: {
+      htmlmin: true
+    },
+    img: {
+      imagemin: true
     },
     css: {
-      cssnano: true
+      sourcemaps: false,
+      sass: true,
+      rename: false,
+      postcss: true,
+      cssnano: true,
+      autoprefixer: true
     }
   }
 };
 
-/** makes gulp task dynamic by allowing you to pass in different options to the plugins, 
- * allowing different options per environment, per plugin.
- * Code stays DRY because you don’t need to create duplicate tasks per environment. 
- * Simply alter the config objects that get passed into the plugins: */
-var plugin = {
-  default: {
-    js: {
-      uglify: {
-        mangle: true
-      }
-    }
-  },
+const plugin = {
   development: {
     js: {
-      uglify: {
-        mangle: false
-      }
-    }
-  },
-  staging: {
-    js: {
-      uglify: {
-        mangle: true
-      }
+      lint: { fix: true }
+    },
+    css: {
+      sass: { outputStyle: "expanded" },
     }
   },
   production: {
     js: {
-      uglify: {
-        mangle: true
+      lint: { fix: true },
+    },
+    html: {
+      htmlmin: {
+        collapseWhitespace: true,
+        removeComments: true
       }
+    },
+    img: {
+      imagemin: {
+        gifsicle: { interlaced: true },
+        jpegtran: { progressive: true },
+        optipng: { optimizationLevel: 5 },
+        svgo: {
+          plugins: [{
+            removeViewBox: false,
+            collapseGroups: true
+          }]
+        }
+      }
+    },
+    css: {
+      sass: { outputStyle: "compressed" },
+      rename: { suffix: ".min" }
     }
   }
 };
