@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Base from './App';
 require('./utilities/namespace')
 require('./tests/fetch')
 
-ReactDOM.render(<App />, document.getElementById('react-root'));
+ReactDOM.render(<Base />, document.getElementById('react-root'));
