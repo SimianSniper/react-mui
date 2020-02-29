@@ -17,7 +17,7 @@ let theme = createMuiTheme({
   props: {
     // Name of the component ⚛️
     MuiButtonBase: {
-      // The default props to change
+      // The default props to cha  nge
       // disableRipple: true, // No more ripple, on the whole application 💣!
     },
   },
