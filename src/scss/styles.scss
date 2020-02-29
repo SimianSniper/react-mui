@@ -1,6 +1,6 @@
 // styles.scss
 @import 'variables';
-@import 'text/neon';
+@import "text/neon";
 
 html {
   font-size: 62.5%; /* 62.5% of 16px = 10px */
@@ -9,9 +9,9 @@ html {
 body {
   background: rgb(0, 0, 0);
   margin: 0;
+  
   height: 100vh;
   font-family: 'Roboto', sans-serif;
-  color: blue;
 }
 
 header {
@@ -20,6 +20,10 @@ header {
   background-color: black; 
   display: flex;
   justify-content: center;
+}
+
+.main {
+  margin: 20px;
 }
 
 // MUI component bug fix when using htmlFontSize overide

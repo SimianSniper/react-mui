@@ -3,27 +3,22 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-const useStyles = makeStyles(theme => ({
-  default: {
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(1),
-  },
+const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(1),
+    padding: theme.spacing(3),
   },
-  
-}),{name:'ExampleTypography'});
+
+}), { name: 'ExampleTypography' });
 
 const ExampleTypography = () => {
-
   const classes = useStyles();
 
   return (
-    <Box>
-      <Box m={1} color="red" className={classes.default}>
+    <>
+      <Box m={1} color="red" className={classes.paper}>
         <Typography variant="h1" color="primary" gutterBottom>
-          h1. Heading - primary
+          H1 - Primary
         </Typography>
         <Typography variant="h2" color="secondary" gutterBottom>
           h2. Heading - secondary
@@ -111,9 +106,9 @@ const ExampleTypography = () => {
           overline text
         </Typography>
       </Box>
-    </Box>
-  )
-}
+    </>
+  );
+};
 
 ExampleTypography.displayName = 'ExampleTypography';
 export default ExampleTypography;
