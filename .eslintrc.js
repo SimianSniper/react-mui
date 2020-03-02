@@ -24,7 +24,8 @@ module.exports = {
     'react',
   ],
   rules: {
-    "linebreak-style": ["error", "windows"], 
+    "linebreak-style": ["error", "windows"],
+    "arrow-parens": ["error", "as-needed"],
     "no-console": "off",
     //"no-alert": "off",
     //"no-debugger": "off",
