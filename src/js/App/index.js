@@ -6,7 +6,7 @@ import { createMuiTheme, MuiThemeProvider, responsiveFontSizes } from '@material
 // import TypographyTest from './test/typography';
 // import ViewportTest from './test/viewport;
 import Layout from './test/layout/Layout';
-
+import TextField from '@material-ui/core/TextField'
 
 let theme = createMuiTheme({
   typography: {
@@ -50,21 +50,21 @@ let theme = createMuiTheme({
   },
 
   overrides: {
-    MuiButton: {
-      containedPrimary: {
-        backgroundColor: 'blue',
-      },
-    },
-    MuiTypography: {
-      root: {
-        // color: 'yellow',
-      },
-    },
-    MuiPaper: {
-      root: {
-        backgroundColor: '#cedfef',
-      },
-    },
+    // MuiButton: {
+    //   containedPrimary: {
+    //     backgroundColor: 'blue',
+    //   },
+    // },
+    // MuiTypography: {
+    //   root: {
+    //     // color: 'yellow',
+    //   },
+    // },
+    // MuiPaper: {
+    //   root: {
+    //     backgroundColor: '#cedfef',
+    //   },
+    // },
   },
 });
 
@@ -81,8 +81,17 @@ console.log('theme', theme);
 const App = () => (
   <MuiThemeProvider theme={theme}>
     <ScopedCssBaseline>
+    
+    <TextField style={{maxWidth:'500px'}}
+      variant='outlined'
+      name="ethnicity"    
+      label="Ethnicity"
+      placeholder='some placeholder text'
+      margin="normal"
+      fullWidth
+      autoComplete="nope"
+        /> 
 
-      <Layout spacing={6} />
 
       {/* <Box mx={1} p={4} style={{ backgroundColor: theme.palette.primary.dark }} />
       <Box mx={1} p={4} style={{ backgroundColor: theme.palette.primary.main }} />
