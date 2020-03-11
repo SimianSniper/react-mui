@@ -1,8 +1,81 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import PropTypes from 'prop-types';
+import Box from '@material-ui/core/Box';
+
+
+// let theme = createMuiTheme({
+//   typography: {
+//     fontSize: 16,
+//     htmlFontSize: 10,
+//   },
+
+//   palette: {
+//     /** "contrastThreshold" increases the
+//      * point at which a background color
+//      * is considered light, and given a
+//      * dark "contrastText" */
+//     contrastThreshold: 4,
+
+//     /** A higher value for "tonalOffset"
+//      * will make calculated values for
+//      * "light" lighter, and "dark" darker. */
+//     tonalOffset: 0.15,
+
+//     primary: {
+//       main: '#3e5ac8',
+//     },
+//     secondary: {
+//       main: '#95a2cc',
+//     },
+//     text: {
+//       primary: '#192346',
+//       secondary: '#28292e',
+//     },
+//     background: {
+//       default: '#95a2cc',
+//     },
+//   },
+
+//   spacing: factor => `${0.25 * factor}rem`,
+
+//   props: {
+//     // Name of the component ⚛️
+//     MuiButtonBase: {
+//       // The default props to change
+//       // disableRipple: true, // No more ripple, on the whole application 💣!
+//     },
+//   },
+
+//   overrides: {
+//     MuiButton: {
+//       containedPrimary: {
+//         backgroundColor: 'blue',
+//       },
+//     },
+//     MuiTypography: {
+//       root: {
+//         // color: 'yellow',
+//       },
+//     },
+//     MuiPaper: {
+//       root: {
+//         backgroundColor: '#cedfef',
+//       },
+//     },
+//   },
+// });
+
+// const responsiveOptions = {
+//   variants: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+//   breakpoints: ['xs', 'sm', 'md', 'lg', 'xl'],
+//   factor: 2,
+// };
+
+// theme = responsiveFontSizes(theme, responsiveOptions);
+
+// //console.log('theme', theme);
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,13 +91,19 @@ const useStyles = makeStyles(theme => ({
   },
 }), { name: 'FullWidthGrid' });
 
-export default function FullWidthGrid(props) {
+export default function FullWidthGrid() {
   const classes = useStyles();
-  const { spacing } = props;
+  const theme = useTheme();
+  console.log(theme)
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={spacing}>
+
+      <Box mx={1} p={4} style={{ backgroundColor: theme.palette.primary.dark }} />
+      <Box mx={1} p={4} style={{ backgroundColor: theme.palette.primary.main }} />
+      <Box mx={1} p={4} style={{ backgroundColor: theme.palette.primary.light }} />
+
+      <Grid container>
         <Grid item xs={12}>
           <Paper className={classes.paper}>xs=12</Paper>
         </Grid>
@@ -52,11 +131,3 @@ export default function FullWidthGrid(props) {
 }
 
 FullWidthGrid.displayName = 'FullWidthGrid';
-
-FullWidthGrid.defaultProps = {
-  spacing: 5,
-};
-
-FullWidthGrid.propTypes = {
-  spacing: PropTypes.number,
-};
