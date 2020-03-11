@@ -14,7 +14,8 @@
     "js": "gulp js",
     "clean": "gulp clean",
     "build": "gulp build",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "webhint": "hint http://localhost:3000/"
   },
   "author": "Mark Gilgallon",
   "license": "ISC",
@@ -53,6 +54,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-strip-debug": "^3.0.0",
+    "hint": "^6.0.3",
     "minimist": "^1.2.0",
     "react-hot-loader": "^4.12.19",
     "require-dir": "^1.2.0",
